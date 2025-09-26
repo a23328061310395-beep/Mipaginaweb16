@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- jQuery y Bootstrap -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- Fuente decorativa -->
+<link href="https://fonts.cdnfonts.com/css/schnoerkel-caps" rel="stylesheet"/>
+<title>Allisson — Ataques</title>
+<style>
+:root{
+  --ultra-violet: #dcd6f7;
+  --russian-violet: #4b0082;
+  --white: #ffffff;
+  --antiflash-white: #7d5ba6;
+  --sunglow: #ffc107;
+  --chocolate-cosmos: #3c1f2d;
+}
+body{
+  margin: 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: var(--antiflash-white);
+  color: #222;
+}
+/* Navbar igual que en tu página principal */
+.navbar {
+  border-radius: 0;
+  font-size: 18px;
+}
+.navbar a {
+  font-weight: bold;
+}
+.navbar-brand {
+  color: var(--white) !important;
+}
+.navbar-nav li a {
+  color: var(--white) !important;
+  transition: 0.3s;
+}
+.navbar-nav li a:hover {
+  background: var(--sunglow);
+  color: black !important;
+  border-radius: 5px;
+}
+/* Hero Section */
+.gantz-section {
+  position: relative;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("img/fondo.jpg") no-repeat center center/cover;
+}
+.gantz-section::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.45);
+  z-index: 1;
+}
+.gantz-text {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+}
+.gantz-text h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+.gantz-text h3 {
+  font-size: 22px;
+  margin: 6px 0 0;
+  color: #f2f2f2;
+}
+.jumbotron {
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: var(--white);
+  padding: 30px;
+  margin: 0;
+  text-align: center;
+  border-radius: 0;
+}
+/* Tabla */
+.content {
+  padding: 30px;
+}
+.table-wrap {
+  background: #fff;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+table {
+  width:100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  vertical-align: middle;
+}
+thead th {
+  background: #333;
+  color: #fff;
+  text-align: left;
+}
+img.attack-img {
+  max-width: 140px;
+  height: auto;
+  display:block;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+  .gantz-text h1 {
+    font-size: 30px;
+  }
+  .gantz-text h3 {
+    font-size: 16px;
+  }
+  img.attack-img {
+    max-width: 90px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- Navbar (idéntico al de tu página principal) -->
+<nav class="navbar navbar-inverse" style="background-color: var(--russian-violet);">
+<div class="container">
+  <a class="navbar-brand" href="index.html">Inicio</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="nav navbar-nav">
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 1 Ciberseguridad <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="./index.html">Conceptos</a></li>
+      <li class="active"><a href="./index2.html">Ataques</a></li>
+      <li><a href="./index3.html">Protección</a></li>
+    </ul>
+    </li>
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 2 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="./index4.html">Conceptos</a></li>
+      <li><a href="./index5.html">Ataques</a></li>
+      <li><a href="./index6.html">Protección</a></li>
+    </ul>
+    </li>
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Unidad 3 <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="./index7.html">Conceptos</a></li>
+      <li><a href="./index8.html">Ataques</a></li>
+      <li><a href="./index9.html">Protección</a></li>
+    </ul>
+    </li>
+  </ul>
+  </div>
+</div>
+</nav>
+
+<!-- Hero (más pequeño que en la página principal pero mantiene estilo) -->
+<section class="gantz-section" role="banner" aria-label="Portada">
+<div class="gantz-text">
+  <h1>Unidad 1 — Ataques</h1>
+  <h3>Lista de ataques comunes en ciberseguridad</h3>
+</div>
+</section>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+  <h2>Conoce los ataques</h2>
+  <p>Descripción, impacto y ejemplos reales para estudiar y prevenir.</p>
+</div>
+
+<!-- Contenido: tabla de ataques -->
+<div class="content container">
+<div class="table-wrap table-responsive">
+  <table id="tabla-ataques" class="table">
+  <caption style="caption-side: top; font-weight:bold; padding-bottom:10px;">Lista de 12 ataques de ciberseguridad</caption>
+  <thead>
+    <tr>
+    <th>Ataque</th>
+    <th>Descripción</th>
+    <th>Impacto</th>
+    <th>Ejemplo</th>
+    <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody id="tbody-ataques"></tbody>
+  </table>
+</div>
+</div>
+
+<!-- Script al final para poblar la tabla -->
+<script>
+const ataques = [
+  {"ataque":"Phishing","descripcion":"Engaña al usuario para robar credenciales mediante correos falsos o páginas clonadas.","impacto":"Robo de identidad, pérdida de datos.","ejemplo":"Correo falso de un banco solicitando confirmar contraseña.","imagen":"img/img1.png"},
+  {"ataque":"Ransomware","descripcion":"Cifra archivos y exige rescate para restaurarlos.","impacto":"Pérdida de acceso a datos, costes económicos.","ejemplo":"Mensaje que exige pago en criptomonedas para recuperar archivos.","imagen":"img/img2.png"},
+  {"ataque":"DDoS","descripcion":"Satura un servicio con tráfico para dejarlo inaccesible.","impacto":"Interrupción del servicio, pérdidas económicas.","ejemplo":"Tráfico masivo que tumba una tienda en línea durante horas.","imagen":"img/img3.png"},
+  {"ataque":"SQL Injection","descripcion":"Inserta código SQL malicioso para acceder o manipular bases de datos.","impacto":"Exposición o borrado de datos sensibles.","ejemplo":"Ingresar ' OR '1'='1 en formulario de login vulnerable.","imagen":"img/img4.png"},
+  {"ataque":"XSS (Cross-Site Scripting)","descripcion":"Inyección de scripts maliciosos en páginas web vistas por otros usuarios.","impacto":"Robo de cookies, secuestro de sesión.","ejemplo":"Comentario en un foro que ejecuta JavaScript en la sesión de otros.","imagen":"img/img5.png"},
+  {"ataque":"Man-in-the-Middle (MitM)","descripcion":"Intercepción de la comunicación entre dos partes para espiar o alterar datos.","impacto":"Robo de credenciales o modificación de mensajes.","ejemplo":"Ataque en una red Wi-Fi pública que intercepta formularios.","imagen":"img/img6.png"},
+  {"ataque":"Spyware","descripcion":"Software que recoge información del usuario sin su consentimiento.","impacto":"Filtración de información personal y bancaria.","ejemplo":"Aplicación que envía historial de navegación a un servidor remoto.","imagen":"img/img7.png"},
+  {"ataque":"Keylogger","descripcion":"Registra las teclas pulsadas para capturar contraseñas y datos.","impacto":"Robo de credenciales y datos sensibles.","ejemplo":"Programa oculto que guarda todo lo que el usuario escribe.","imagen":"img/img8.png"},
+  {"ataque":"Malware (Troyano)","descripcion":"Programa malicioso que se hace pasar por algo legítimo para engañar al usuario.","impacto":"Robo de información, control remoto del equipo.","ejemplo":"Instalador falso que incluye un troyano.","imagen":"img/img9.png"},
+  {"ataque":"Rootkit","descripcion":"Herramientas que ocultan la presencia de malware en el sistema.","impacto":"Acceso persistente y difícil de detectar.","ejemplo":"Componentes que evitan la detección por antivirus.","imagen":"img/img10.png"},
+  {"ataque":"Brute Force","descripcion":"Prueba masiva de combinaciones para adivinar contraseñas.","impacto":"Acceso no autorizado a cuentas débiles.","ejemplo":"Script que prueba miles de contraseñas en un login.","imagen":"img/img11.png"},
+  {"ataque":"Zero-Day","descripcion":"Explotación de una vulnerabilidad desconocida para el fabricante.","impacto":"Compromiso instantáneo sin parche disponible.","ejemplo":"Exploit que ataca un navegador antes de actualizarse.","imagen":"img/img12.png"}
+];
+
+function esc(s){ 
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); 
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  const tbody = document.getElementById('tbody-ataques');
+  tbody.innerHTML = ataques.map(a => `
+    <tr>
+      <td>${esc(a.ataque)}</td>
+      <td>${esc(a.descripcion)}</td>
+      <td>${esc(a.impacto)}</td>
+      <td>${esc(a.ejemplo)}</td>
+      <td>${a.imagen ? '<img class="attack-img" src="'+a.imagen+'" alt="'+esc(a.ataque)+'">' : 'Sin imagen'}</td>
+    </tr>
+  `).join('');
+});
+</script>
+</body>
+</html>

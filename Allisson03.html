@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ataques de Ciberseguridad</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background:#f5f5f8; color:#222; }
+    table { width:100%; border-collapse: collapse; background:white; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: left; vertical-align: middle; }
+    th { background: #333; color: #fff; }
+    img { display:block; max-width:150px; height:auto; }
+    caption { caption-side: top; padding: 10px; font-weight: bold; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+
+  <table id="tabla-ataques" aria-describedby="lista-ataques">
+    <caption id="lista-ataques">Lista de 12 ataques de ciberseguridad</caption>
+    <thead>
+      <tr>
+        <th>Ataque</th>
+        <th>Descripción</th>
+        <th>Impacto</th>
+        <th>Ejemplo</th>
+        <th>Imagen</th>
+      </tr>
+    </thead>
+    <tbody id="tbody-ataques"></tbody>
+  </table>
+
+  <script>
+    // Datos: 12 ataques (no hay comas extra al final)
+    const ataques = [
+      {
+        "ataque": "Phishing",
+        "descripcion": "Engaña al usuario para robar credenciales mediante correos falsos o páginas clonadas.",
+        "impacto": "Robo de identidad, pérdida de datos.",
+        "ejemplo": "Correo falso de un banco solicitando confirmar contraseña.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Phishing_Email.png"
+      },
+      {
+        "ataque": "Ransomware",
+        "descripcion": "Cifra archivos y exige rescate para restaurarlos.",
+        "impacto": "Pérdida de acceso a datos, costes económicos.",
+        "ejemplo": "Mensaje que exige pago en criptomonedas para recuperar archivos.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/6/6b/WannaCry_ransomware_message.png"
+      },
+      {
+        "ataque": "DDoS",
+        "descripcion": "Satura un servicio con tráfico para dejarlo inaccesible.",
+        "impacto": "Interrupción del servicio, pérdidas económicas.",
+        "ejemplo": "Tráfico masivo que tumba una tienda en línea durante horas.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Slowloris_attack.png"
+      },
+      {
+        "ataque": "SQL Injection",
+        "descripcion": "Inserta código SQL malicioso para acceder o manipular bases de datos.",
+        "impacto": "Exposición o borrado de datos sensibles.",
+        "ejemplo": "Ingresar ' OR '1'='1 en formulario de login vulnerable.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/9/9a/SQLi_example.png"
+      },
+      {
+        "ataque": "XSS (Cross-Site Scripting)",
+        "descripcion": "Inyección de scripts maliciosos en páginas web vistas por otros usuarios.",
+        "impacto": "Robo de cookies, secuestro de sesión.",
+        "ejemplo": "Comentario en un foro que ejecuta JavaScript en la sesión de otros.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/19/XSS-example.png"
+      },
+      {
+        "ataque": "Man-in-the-Middle (MitM)",
+        "descripcion": "Intercepción de la comunicación entre dos partes para espiar o alterar datos.",
+        "impacto": "Robo de credenciales o modificación de mensajes.",
+        "ejemplo": "Ataque en una red Wi-Fi pública que intercepta formularios.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/19/Man_in_the_middle_attack.png"
+      },
+      {
+        "ataque": "Spyware",
+        "descripcion": "Software que recoge información del usuario sin su consentimiento.",
+        "impacto": "Filtración de información personal y bancaria.",
+        "ejemplo": "Aplicación que envía historial de navegación a un servidor remoto.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/2/25/Spyware.png"
+      },
+      {
+        "ataque": "Keylogger",
+        "descripcion": "Registra las teclas pulsadas para capturar contraseñas y datos.",
+        "impacto": "Robo de credenciales y datos sensibles.",
+        "ejemplo": "Programa oculto que guarda todo lo que el usuario escribe.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Keylogger.png"
+      },
+      {
+        "ataque": "Malware (Troyano)",
+        "descripcion": "Programa malicioso que se hace pasar por algo legítimo para engañar al usuario.",
+        "impacto": "Robo de información, control remoto del equipo.",
+        "ejemplo": "Instalador falso que incluye un troyano.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Malware.png"
+      },
+      {
+        "ataque": "Rootkit",
+        "descripcion": "Herramientas que ocultan la presencia de malware en el sistema.",
+        "impacto": "Acceso persistente y difícil de detectar.",
+        "ejemplo": "Componentes que evitan la detección por antivirus.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Rootkit.png"
+      },
+      {
+        "ataque": "Brute Force",
+        "descripcion": "Prueba masiva de combinaciones para adivinar contraseñas.",
+        "impacto": "Acceso no autorizado a cuentas débiles.",
+        "ejemplo": "Script que prueba miles de contraseñas en un login.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Brute_force_attack.png"
+      },
+      {
+        "ataque": "Zero-Day",
+        "descripcion": "Explotación de una vulnerabilidad desconocida para el fabricante.",
+        "impacto": "Compromiso instantáneo sin parche disponible.",
+        "ejemplo": "Exploit que ataca un navegador antes de actualizarse.",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Zero-day.png"
+      }
+    ];
+
+    // función simple para escapar texto y evitar inyectar HTML
+    function esc(text) {
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    // Poblamos la tabla cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+      const tbody = document.getElementById('tbody-ataques');
+      tbody.innerHTML = ataques.map(a => `
+        <tr>
+          <td>${esc(a.ataque)}</td>
+          <td>${esc(a.descripcion)}</td>
+          <td>${esc(a.impacto)}</td>
+          <td>${esc(a.ejemplo)}</td>
+          <td>${a.imagen ? `<img src="${a.imagen}" alt="${esc(a.ataque)}">` : 'Sin imagen'}</td>
+        </tr>
+      `).join('');
+    });
+  </script>
+</body>
+</html>
